@@ -15,3 +15,5 @@ VERMELHO = (255, 0, 0)
 
 
 fonte = pygame.font.Font(None, 36)
+
+palavras = ["PYTHON", "JANELA", "CACHORRO", "PROGRAMACAO", "GUITARRA"]
