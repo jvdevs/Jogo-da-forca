@@ -69,7 +69,8 @@ def game_loop():
     pygame.display.flip()
     pygame.time.delay(3000)
     pygame.quit()
-
+    
+game_loop()
 
 
 
