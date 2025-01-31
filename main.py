@@ -17,3 +17,9 @@ VERMELHO = (255, 0, 0)
 fonte = pygame.font.Font(None, 36)
 
 palavras = ["PYTHON", "JANELA", "CACHORRO", "PROGRAMACAO", "GUITARRA"]
+
+
+palavra = random.choice(palavras)
+palavra_oculta = ["_" for _ in palavra]
+letras_erradas = []
+tentativas_restantes = 6
