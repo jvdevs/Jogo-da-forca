@@ -23,3 +23,10 @@ palavra = random.choice(palavras)
 palavra_oculta = ["_" for _ in palavra]
 letras_erradas = []
 tentativas_restantes = 6
+
+def game_loop():
+    global tentativas_restantes
+    rodando = True
+    while rodando:
+        tela.fill(BRANCO)
+
