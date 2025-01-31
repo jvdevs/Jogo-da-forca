@@ -36,4 +36,40 @@ def game_loop():
         texto_erradas = fonte.render("Letras erradas: " + " ".join(letras_erradas), True, VERMELHO)
         tela.blit(texto_erradas, (50, 150))
 
+        texto_tentativas = fonte.render(f"Tentativas restantes: {tentativas_restantes}", True, PRETO)
+        tela.blit(texto_tentativas, (50, 200))
+        
+        for evento in pygame.event.get():
+            if evento.type == pygame.QUIT:
+                rodando = False
+            elif evento.type == pygame.KEYDOWN:
+                letra = evento.unicode.upper()
+                if letra.isalpha() and len(letra) == 1:
+                    if letra in palavra:
+                        for i, l in enumerate(palavra):
+                            if l == letra:
+                                palavra_oculta[i] = letra
+                    else:
+                        if letra not in letras_erradas:
+                            letras_erradas.append(letra)
+                            tentativas_restantes -= 1
+                    
+        if "_" not in palavra_oculta:
+            mensagem = "Você venceu!"
+            rodando = False
+        elif tentativas_restantes == 0:
+            mensagem = f"Você perdeu! A palavra era {palavra}"
+            rodando = False
+        
+        pygame.display.flip()
+    
+    tela.fill(BRANCO)
+    texto_final = fonte.render(mensagem, True, PRETO)
+    tela.blit(texto_final, (LARGURA//2 - 100, ALTURA//2))
+    pygame.display.flip()
+    pygame.time.delay(3000)
+    pygame.quit()
+
+
+
 
