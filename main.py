@@ -30,3 +30,10 @@ def game_loop():
     while rodando:
         tela.fill(BRANCO)
 
+        texto_palavra = fonte.render(" ".join(palavra_oculta), True, PRETO)
+        tela.blit(texto_palavra, (50, 100))
+        
+        texto_erradas = fonte.render("Letras erradas: " + " ".join(letras_erradas), True, VERMELHO)
+        tela.blit(texto_erradas, (50, 150))
+
+
